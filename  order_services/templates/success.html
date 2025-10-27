@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Success</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #e9f7ef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .success-box {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 350px;
+    }
+
+    h2 {
+      color: #28a745;
+    }
+
+    p {
+      color: #333;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="success-box">
+    <h2>Order Placed!</h2>
+    <p>Thank you, <b>{{ name }}</b>.</p>
+    <p>Total: Rs {{ total }}</p>
+    <a href="http://127.0.0.1:5011/">Back to Bookstore</a>
+  </div>
+
+</body>
+</html>

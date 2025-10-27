@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Book</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .order-box {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin: 8px 0 5px;
+      color: #444;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="order-box">
+    <h2>Order: {{ book.title }}</h2>
+    <form method="POST" action="/place_order">
+      <input type="hidden" name="book_id" value="{{ book.id }}">
+      <input type="hidden" name="price" value="{{ book.price }}">
+
+      <p><b>Author:</b> {{ book.author }}</p>
+      <p><b>Price:</b> Rs {{ book.price }}</p>
+
+      <label>Your Name:</label>
+      <input type="text" name="customer_name" required>
+
+      <label>Quantity:</label>
+      <input type="number" name="quantity" value="1" min="1" required>
+
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+
+</body>
+</html>

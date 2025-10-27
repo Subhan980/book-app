@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Bookstore</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #7db8f3ff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #222;
+      margin-bottom: 20px;
+    }
+
+    .book-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .book-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .book-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .book-card h3 {
+      color: #333;
+    }
+
+    .book-card p {
+      color: #666;
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .order-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .order-btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Available Books</h2>
+  <div class="book-container">
+    {% for book in books %}
+      <div class="book-card">
+        <h3>{{ book.title }}</h3>
+        <p><b>Author:</b> {{ book.author }}</p>
+        <p><b>Price:</b> Rs {{ book.price }}</p>
+        <a class="order-btn" href="http://127.0.0.1:5005/order/{{ book.id }}">Order Now</a>
+      </div>
+    {% endfor %}
+  </div>
+
+</body>
+</html>
